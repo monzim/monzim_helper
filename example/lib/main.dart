@@ -27,22 +27,41 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Responsive.T(
+      backgroundColor: RType<Color>(
         context,
-        mobile: Colors.red,
-        tablet: Colors.blue,
-        desktop: Colors.green,
-        large: Colors.yellow,
-      ),
+        defaultValue: Colors.red,
+        tablet: Colors.amber,
+      ).value,
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(Responsive.width(context).toString()),
-            const Responsive(
-              mobile: Text('Mobile Screen'),
+            Text(
+              DeviceSize.width(context).toString(),
+              style: TextStyle(
+                fontSize: AType(context,
+                        defaultValue: 16,
+                        scaleFactor: 3,
+                        mobileScaleFactor: 5,
+                        tabletScaleFactor: 7)
+                    .defaultValue,
+              ),
+            ),
+            Text(MediaQuery.of(context).devicePixelRatio.toString()),
+            Responsive(
+              child: Text(
+                'Mobile Screen',
+                style: TextStyle(
+                  fontSize: AType(
+                    context,
+                    defaultValue: 16,
+                    scaleFactor: 3,
+                    // mobileScaleFactor: 5
+                  ).value,
+                ),
+              ),
               tablet: Text('Tablet Screen'),
               desktop: Text('Desktop Screen'),
               large: Text('Large Screen'),
