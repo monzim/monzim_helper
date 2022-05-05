@@ -28,12 +28,48 @@ start using the package.
 TODO: Include short and useful examples for package users. Add longer examples
 to `/example` folder.
 
+### Responsive Widget
+
 ```dart
-const like = 'sample';
+ Responsive(
+    child: Text('Mobile Screen'), //Required
+    tablet: Text('Tablet Screen'),
+    desktop: Text('Desktop Screen'),
+    large: Text('Large Screen'),
+),
+
+```
+
+### Adaptive Type
+
+```
+ AType(context,
+    defaultValue: 16,
+    scaleFactor: 3,
+    mobileScaleFactor: 5,
+    tabletScaleFactor: 7)
+.value,
+
+```
+
+### Responsive Type
+
+```
+ RType<Color>(
+    context,
+    defaultValue: Colors.red,
+    tablet: Colors.amber,
+    ).value,
+```
+
+### Row and Column
+
+```
+RowColumn(
+isRow: DeviceScreen.isTablet(context), //Get Screen Type
+children: [],
+),
+
 ```
 
 ## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
