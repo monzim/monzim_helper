@@ -33,10 +33,8 @@ class HomePage extends StatelessWidget {
         tablet: Colors.amber,
       ).value,
       body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: RowColumn(
+          isRow: DeviceScreen.isTablet(context),
           children: [
             Text(
               DeviceSize.width(context).toString(),
@@ -46,10 +44,9 @@ class HomePage extends StatelessWidget {
                         scaleFactor: 3,
                         mobileScaleFactor: 5,
                         tabletScaleFactor: 7)
-                    .defaultValue,
+                    .value,
               ),
             ),
-            Text(MediaQuery.of(context).devicePixelRatio.toString()),
             Responsive(
               child: Text(
                 'Mobile Screen',
@@ -62,9 +59,9 @@ class HomePage extends StatelessWidget {
                   ).value,
                 ),
               ),
-              tablet: Text('Tablet Screen'),
-              desktop: Text('Desktop Screen'),
-              large: Text('Large Screen'),
+              tablet: const Text('Tablet Screen'),
+              desktop: const Text('Desktop Screen'),
+              large: const Text('Large Screen'),
             ),
           ],
         ),
