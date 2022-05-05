@@ -47,21 +47,11 @@ class HomePage extends StatelessWidget {
                     .value,
               ),
             ),
-            Responsive(
-              child: Text(
-                'Mobile Screen',
-                style: TextStyle(
-                  fontSize: AType(
-                    context,
-                    defaultValue: 16,
-                    scaleFactor: 3,
-                    // mobileScaleFactor: 5
-                  ).value,
-                ),
-              ),
-              tablet: const Text('Tablet Screen'),
-              desktop: const Text('Desktop Screen'),
-              large: const Text('Large Screen'),
+            const Responsive(
+              child: Text('Mobile Screen'),
+              tablet: Text('Tablet Screen'),
+              desktop: Text('Desktop Screen'),
+              large: Text('Large Screen'),
             ),
           ],
         ),
